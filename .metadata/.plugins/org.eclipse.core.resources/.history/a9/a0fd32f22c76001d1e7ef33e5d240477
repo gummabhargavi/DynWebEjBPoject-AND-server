@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+ <style>
+body{ 
+background-color: lightblue;
+}
+table {
+     border-collapse: collapse;
+}
+.heading{
+text-align:center;
+font-family: cursive;
+}
+th, td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+background-color: #D0EEE1;
+}
+
+
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+
+</style>
+<body>
+       <form action="AddBusServlet">
+       <center>
+       <div class="heading">
+       <h1>Adding Bus Details</h1>
+       </div>
+         Bus No:
+           <input type="text" name="bus_no"><br/><br/>
+         TypeOfBus:
+           <input type="text" name="type_of_bus"><br/><br/>
+         TypeOfServies:
+           <input type="text" name="type_of_servies"><br/><br/>
+         NoOfSeats:
+           <input type="text" name="no_of_seat"><br/><br/>
+         BusStatus:
+           <input type="text" name="bus_status"><br/><br/>
+
+        <input type="submit" value="Add">
+        </center>
+      </form>
+</body>
+</html>

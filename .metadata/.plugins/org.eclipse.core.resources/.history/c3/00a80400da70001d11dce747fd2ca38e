@@ -1,0 +1,51 @@
+package com.java.ejb;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class PaymentDAO {
+	
+	Connection connection;
+	PreparedStatement pst;
+	
+	public String generatePaymentId() throws ClassNotFoundException, SQLException {
+		connection = ConnectionHelper.getConnection();
+		String cmd = "select case when max(payment_id) is NULL THEN 'P001' else max(payment_id) end  pid from payment_detail";
+		pst = connection.prepareStatement(cmd);
+		ResultSet rs = pst.executeQuery();
+		rs.next();
+		String rid = rs.getString("pid");
+		int id = Integer.parseInt(rid.substring(1));
+		id++;
+		String pid="";
+		if (id >=1 && id <=9) {
+			pid="P00"+id;
+		}
+		if (id >=10 && id <= 99) {
+			pid="P0"+id;
+		}
+		if (id >=100 && id<=999) {
+			pid="P"+id;
+		}
+		return pid;
+	}
+	
+	public String addPayment(Payment payment) 
+			throws ClassNotFoundException, SQLException {
+		connection = ConnectionHelper.getConnection();
+		String cmd = "insert into Payment(payment_id,user_id,wallet_id,booking_id,amount,paymate_date,payment_status) "
+				+ " values(?,?,?,?,?,?,?)";
+		pst = connection.prepareStatement(cmd);
+		pst.setString(1, payment.getUser_id());
+		pst.setString(2, payment.getWallet_id());
+		pst.setString(3, payment.getBooking_id());
+		pst.setFloat(4, payment.getAmount());
+		pst.setDate(5, payment.getPaymate_date());
+		pst.setString(6,payment.getPayment_status().toString() );
+		pst.executeUpdate();
+		return "Record Inserted...";
+	}
+
+}

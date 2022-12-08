@@ -1,0 +1,26 @@
+package com.java.ejb;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class PaymentDAO {
+	
+	Connection connection;
+	PreparedStatement pst;
+	
+	public String addPayment(Payment payment) 
+			throws ClassNotFoundException, SQLException {
+		connection = ConnectionHelper.getConnection();
+		String cmd = "insert into Payment(user_id,wallet_id,booking_id,amount,paymate_date,payment_status) "
+				+ " values(?,?,?,?)";
+		pst = connection.prepareStatement(cmd);
+		pst.setString(1, employ.getName());
+		pst.setString(2, employ.getDept());
+		pst.setString(3, employ.getDesig());
+		pst.setInt(4, employ.getBasic());
+		pst.executeUpdate();
+		return "Record Inserted...";
+	}
+
+}

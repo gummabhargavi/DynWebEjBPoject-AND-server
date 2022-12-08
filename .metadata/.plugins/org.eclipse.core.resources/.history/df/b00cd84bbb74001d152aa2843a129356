@@ -1,0 +1,89 @@
+package com.java.ejb;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
+
+/**
+ * Session Bean implementation class BusBean
+ */
+@Stateless
+@Remote(BusBeanRemote.class)
+public class BusBean implements BusBeanRemote {
+	
+static BusDAO bdao;
+	
+	static {
+		bdao = new BusDAO();
+	}
+	
+static PaymentDAO edao;
+	
+	static {
+		edao = new PaymentDAO();
+	}
+	
+static UserDAO udao;
+	
+	static {
+		udao = new UserDAO();
+	}
+	
+//	static UserDAO udao;
+//	
+//	   static {
+//		   udao = new UserDAO();
+//	   }
+    /**
+     * Default constructor. 
+     */
+    public BusBean() {
+        // TODO Auto-generated constructor stub
+    }
+
+	@Override
+	public List<Payment> showPaymentBean() throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return edao.showPayment();
+	}
+
+	@Override
+	public Payment searchPaymentBean(String payment_id) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return edao.searcPayment(payment_id);
+	}
+
+	@Override
+	public String addPaymentBean(Payment payment) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return edao.addPayment(payment);
+	}
+
+	@Override
+	public String deletePaymentBean(int payment_id) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updatePaymentBean(Payment payment) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> showUserBean() throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return udao.showUser();
+	}
+
+	@Override
+	public List<Bus> showBusBean() throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return bdao.showBus();
+	}
+
+}

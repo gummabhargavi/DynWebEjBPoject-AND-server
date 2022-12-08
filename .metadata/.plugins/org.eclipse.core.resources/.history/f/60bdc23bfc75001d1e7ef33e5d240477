@@ -1,0 +1,44 @@
+package com.java.ejb;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TravelSDAO {
+	
+	Connection connection;
+	PreparedStatement pst;
+	
+	public List<TravelSchedule> showTravel() throws 
+	ClassNotFoundException, SQLException {
+      List<TravelSchedule> travelList = new ArrayList<TravelSchedule>();
+      connection = ConnectionHelper.getConnection();
+      String cmd = "select * from travel_schedule";
+      pst = connection.prepareStatement(cmd);
+      ResultSet rs = pst.executeQuery();
+      TravelSchedule travel = null;
+          while(rs.next()) {
+        	  travel = new TravelSchedule();
+        	  travel.setSchedule_id(rs.getString("schedule_id"));
+        	  travel.setBus_id(rs.getString("bus_id"));
+        	  travel.setDriver_id(rs.getString("driver_id"));
+        	  travel.setStarting_point(rs.getString("starting_point"));
+        	  travel.setDestination_point(rs.getString("destination_point"));
+        	  travel.setSchedule_date(rs.getDate("schedule_date"));
+        	  travel.setDeparture_time(rs.getString("departure_time"));
+        	  travel.setEstimate_arrival_date(rs.getDate("estimate_arrival_date"));
+        	  travel.setEstimate_arrival_time(rs.getString("estimate_arrival_time"));
+        	  travel.setFare_amount(rs.getDouble("fare_amount"));
+        	  travel.setRemark(rs.getString("remark"));
+        	  travel.setAddress_starting_point(rs.getString("address_starting_point"));
+        	  travel.setAddress_destination_point(rs.getString("address_destination_point"));
+        	  
+        	  travelList.add(travel);
+      }
+      return travelList;
+  }
+
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+  <form method="get" action="AddPaymentServlet">
+		<center>
+			UsetId : 
+			<input type="text" name="user_id" /> <Br/><br/>
+			WalletId : 
+			<input type="text" name="wallet_id" /> <Br/><Br/>
+			BookingId : 
+			<input type="text" name="booking_id" /> <Br/><br/>
+			Amount : 
+			<input type="number" name="amount" /> <Br/><br/>
+			PaymateDate :
+			<input type="date" name="paymate_date" /> <Br/><br/>
+			PaymentStatus :
+			<input type="text" name="payment_status" /> <Br/><br/>
+			<input type="submit" value="Add Payment" />
+		</center>
+	</form>
+
+</body>
+</html>

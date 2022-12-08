@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+    <form action="UpdateTravelServlet">
+         ScheduleId :
+          <input type="text" name="schedule_id"><br/><br/>
+         Bus Id:
+           <input type="text" name="bus_id"><br/><br/>
+         Driver Id:
+           <input type="text" name="driver_id"><br/><br/>
+         StartingPoint:
+           <input type="text" name="starting_point"><br/><br/>
+         DestinationPoint:
+           <input type="text" name="destination_point"><br/><br/>
+         ScheduleDate:
+           <input type="date" name="schedule_date"><br/><br/>
+         DepartureTime :
+           <input type="time" name="departure_time"><br/><br/> 
+         EstimateArrivalDate :
+           <input type="date" name="estimate_arrival_date"><br/><br/>
+         EstimateArrivalTime :
+            <input type="time" name="estimate_arrival_time"><br/><br/>
+         FareAmount :
+            <input type="text" name="fare_amount"><br/><br/>
+         Remark :
+             <input type="text" name="remark"><br/><br/>
+         AddressStartingPoint :            
+             <input type="text" name="address_starting_point"><br/><br/>
+         AddressDestinationPoint :
+             <input type="text" name="address_destination_point"><br/><br/>    
+        <input type="submit" value="Add">
+      </form>
+
+</body>
+</html>

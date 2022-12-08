@@ -1,0 +1,11 @@
+package com.java.ejb;
+
+public class test {
+	public static void main(String[] args) {
+		Bus bus= new Bus();
+		BusDAO dao=new BusDAO();
+		bus.setBus_id("B013");
+		bus.setBus_no("ABSDFG112");
+	}
+
+}

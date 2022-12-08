@@ -1,0 +1,15 @@
+package com.java.ejb;
+
+import java.io.Serializable;
+import java.sql.Date;
+
+public class Payment implements Serializable {
+
+	private String payment_id;
+	private String user_id;
+	private String wallet_id;
+	private String booking_id;
+	private float amount;
+	private Date paymate_date;
+	private PaymentStatus payment_status ;
+}

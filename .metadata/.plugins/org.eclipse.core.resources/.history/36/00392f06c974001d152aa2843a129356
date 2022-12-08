@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+    <form action="AddBusServlet">
+        Bus Id :
+           <input type="text" name="bus_id"><br/><br/>
+         Bus No:
+           <input type="text" name="bus_no"><br/><br/>
+         TypeOfBus:
+           <input type="text" name="type_of_bus"><br/><br/>
+         TypeOfServies:
+           <input type="text" name="type_of_servies"><br/><br/>
+         NoOfSeats:
+           <input type="text" name="no_of_seat"><br/><br/>
+         BusStatus:
+           <input type="text" name="bus_status"><br/><br/>
+
+        <input type="submit" value="Add">
+      </form>
+</body>
+</html>

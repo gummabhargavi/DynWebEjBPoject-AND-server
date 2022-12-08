@@ -1,0 +1,14 @@
+package com.java.ejb;
+
+import java.io.Serializable;
+
+public class Bus implements Serializable{
+	
+	private String bus_id;
+	private String bus_no;
+	private TypeOfBus type_of_bus;
+	private TypeOfServies type_of_servies;
+	private NoOfSeat no_of_seat;
+	private BusStatus bus_status;
+
+}

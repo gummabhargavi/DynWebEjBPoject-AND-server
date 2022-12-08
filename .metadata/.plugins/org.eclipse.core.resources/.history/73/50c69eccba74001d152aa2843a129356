@@ -1,0 +1,37 @@
+package com.java.ejb;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class BusDAO {
+	
+	Connection connection;
+	PreparedStatement pst;
+	
+	public List<Bus> showBus() throws 
+	ClassNotFoundException, SQLException {
+      List<Bus> busList = new ArrayList<Bus>();
+      connection = ConnectionHelper.getConnection();
+      String cmd = "select * from bus_details";
+      pst = connection.prepareStatement(cmd);
+      ResultSet rs = pst.executeQuery();
+      Bus bus = null;
+          while(rs.next()) {
+        	  bus = new Bus();
+        	  bus.setBus_id(rs.getString("bus_id"));
+        	  bus.setBus_no(rs.getString("bus_no"));
+        	 // bus.setType_of_bus(rs.getString("type_of_bus").toString());
+        	 // bus.setType_of_servies;(rs.getString("type_of_servies").toString());
+        	  bus.setNo_of_seat(rs.getInt("no_of_seat"));
+        	 // bus.setBus_status(rs.getString("bus_status").toString());
+        	  busList.add(bus);
+      }
+      return busList;
+  }
+
+
+}

@@ -1,0 +1,24 @@
+package com.java.ejb;
+
+import java.io.Serializable;
+import java.sql.Date;
+
+public class TravelSchedule implements Serializable{
+	
+	private String schedule_id;
+	private String bus_id;
+	private String driver_id;
+	private String starting_point;
+	private String destination_point;
+	private Date schedule_date;
+	private String departure_time;
+	private Date estimate_arrival_date;
+	private String estimate_arrival_time;
+	private double fare_amount;
+	private String remark;
+	private String address_starting_point;
+	private String address_destination_point;
+	
+	
+
+}

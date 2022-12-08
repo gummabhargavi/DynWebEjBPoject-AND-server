@@ -1,0 +1,7 @@
+package com.java.ejb;
+
+public class TravelSchedule {
+	
+	private String schedule_id;
+
+}
